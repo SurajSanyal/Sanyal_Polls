@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import { useEffect } from "react";
-import PollPreview from "./PollPreview";
+import ConnectedPollPreview from "./PollPreview";
+import ConnectedPollPage from "./PollPage";
 import { handleInitialData } from "../actions/shared";
 
 function App({ loading, dispatch }) {
@@ -16,7 +17,9 @@ function App({ loading, dispatch }) {
         <div className="container mx-auto bg-gray-200 rounded-xl shadow border p-8 m-10 text-center">
           <p className="text-3xl text-gray-700 font-bold mb-5">Welcome!</p>
           <p className="text-gray-500 text-lg">Let's show a poll.</p>
-          <PollPreview id={"8xf0y6ziyjabvozdd253nd"} />
+          {/* <ConnectedPollPreview id="8xf0y6ziyjabvozdd253nd" /> */}
+          {/* <ConnectedPollPage id="8xf0y6ziyjabvozdd253nd" /> */}
+          <ConnectedPollPage id="vthrdm985a262al8qx3do" />
         </div>
       )}
     </div>
