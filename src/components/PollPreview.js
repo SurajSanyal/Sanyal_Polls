@@ -19,6 +19,7 @@ const PollPreview = ({ id, author, timestamp }) => {
         {new Date(timestamp).toLocaleTimeString("en-US")}
         <span></span>
       </div>
+      {/* @todo route to PollPage */}
       <button>Show</button>
     </div>
   );
