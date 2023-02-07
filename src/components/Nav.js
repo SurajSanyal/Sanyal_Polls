@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { unsetAuthedUser } from "../actions/authedUser";
 
-const Nav = () => {
+const Nav = ({ authedUser, dispatch }) => {
   return (
     <ul className="flex">
       <li className="mr-6">
@@ -18,8 +20,26 @@ const Nav = () => {
           Leaderboard
         </Link>
       </li>
+      {/* @todo figure out logging out */}
+      <li
+        className="ml-auto"
+        onClick={() => {
+          console.log("Log out");
+          dispatch(unsetAuthedUser());
+        }}
+      >
+        <span className="text-blue-500 hover:text-blue-800">
+          Log Out ({authedUser})
+        </span>
+      </li>
     </ul>
   );
 };
 
-export default Nav;
+const mapStateToProps = ({ authedUser }) => {
+  return {
+    authedUser,
+  };
+};
+
+export default connect(mapStateToProps)(Nav);
