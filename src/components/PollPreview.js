@@ -1,15 +1,7 @@
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 const PollPreview = ({ id, author, timestamp }) => {
-  /* 
-  Display:
-    Author
-    Time/Date created
-    "Show" button
-  */
-
-  console.log({ id, author, timestamp });
-
   return (
     <div className="rounded bg-slate-100 w-56 h-32">
       <div>{author}</div>
@@ -19,8 +11,7 @@ const PollPreview = ({ id, author, timestamp }) => {
         {new Date(timestamp).toLocaleTimeString("en-US")}
         <span></span>
       </div>
-      {/* @todo route to PollPage */}
-      <button>Show</button>
+      <Link to={`/poll/${id}`}>Show</Link>
     </div>
   );
 };

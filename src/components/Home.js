@@ -7,14 +7,25 @@ const Home = ({ name, answeredPolls, unansweredPolls }) => {
 
   const pollsToDisplay = showUnanswered ? unansweredPolls : answeredPolls;
 
-  // @todo make dropdown to select type of poll to display
+  const handleChange = (e) => {
+    setShowUnanswered(e.target.value === "unanswered");
+  };
+
   return (
     <div>
       <div>Welcome {name.replace(/ .*/, "")}!</div>
-      <div>Polls to display: {showUnanswered ? "Unanswered" : "Answered"}</div>
+      <div>
+        Polls to display:{" "}
+        <span>
+          <select defaultValue="unanswered" onChange={handleChange}>
+            <option value="unanswered">Unanswered</option>
+            <option value="answered">Answered</option>
+          </select>
+        </span>
+      </div>
       <div className="flex gap-3">
         {pollsToDisplay.map((pollId) => {
-          return <PollPreview id={pollId} />;
+          return <PollPreview key={pollId} id={pollId} />;
         })}
       </div>
     </div>

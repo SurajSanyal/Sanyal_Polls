@@ -1,7 +1,21 @@
 import { connect } from "react-redux";
 import { useState } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
-const PollPage = ({ poll, answer, previouslyAnswered, id }) => {
+// Helper function from react-router
+const withRouter = (Component) => {
+  const ComponentWithRouterProp = (props) => {
+    let location = useLocation();
+    let navigate = useNavigate();
+    let params = useParams();
+
+    return <Component {...props} router={{ location, navigate, params }} />;
+  };
+
+  return ComponentWithRouterProp;
+};
+
+const PollPage = ({ poll, answer, previouslyAnswered }) => {
   const [formAnswer, setFormAnswer] = useState(answer);
 
   const handleFormChange = (e) => {
@@ -13,8 +27,6 @@ const PollPage = ({ poll, answer, previouslyAnswered, id }) => {
     // @todo update store and whatnot
     console.log("Submitting answer: ", formAnswer);
   };
-
-  // console.log({ poll, answer, previouslyAnswered, id });
 
   if (poll === null) {
     return <p>404: This poll doesn't exist. :(</p>;
@@ -81,7 +93,8 @@ const PollPage = ({ poll, answer, previouslyAnswered, id }) => {
 
 // connecting to store to grab poll info from state
 // & see if authedUser answered poll already
-const mapStateToProps = ({ authedUser, polls }, { id }) => {
+const mapStateToProps = ({ authedUser, polls }, props) => {
+  const { id } = props.router.params;
   const poll = polls[id] ? polls[id] : null;
   let answer = "";
 
@@ -107,4 +120,4 @@ const mapStateToProps = ({ authedUser, polls }, { id }) => {
   };
 };
 
-export default connect(mapStateToProps)(PollPage);
+export default withRouter(connect(mapStateToProps)(PollPage));

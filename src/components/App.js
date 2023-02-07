@@ -5,26 +5,33 @@ import ConnectedPollPage from "./PollPage";
 import Leaderboard from "./Leaderboard";
 import { handleInitialData } from "../actions/shared";
 import ConnectedHome from "./Home";
+import { Routes, Route } from "react-router-dom";
+import Nav from "./Nav";
+import AddPoll from "./AddPoll";
+import Login from "./Login";
 
-function App({ loading, dispatch }) {
+function App({ isLoggedIn, dispatch }) {
   useEffect(() => {
     dispatch(handleInitialData());
   }, []);
 
   return (
-    <div className="App">
-      {loading ? (
-        <h3 className="center">Loading...</h3>
+    <div className="container mx-auto bg-gray-200 rounded-xl shadow border p-8 m-10 text-center">
+      {!isLoggedIn ? (
+        <Login />
       ) : (
-        <div className="container mx-auto bg-gray-200 rounded-xl shadow border p-8 m-10 text-center">
+        <>
+          <Nav />
           <p className="text-3xl text-gray-700 font-bold mb-5">Polls App</p>
-          {/* <ConnectedPollPreview id="8xf0y6ziyjabvozdd253nd" /> */}
-          {/* <ConnectedPollPage id="8xf0y6ziyjabvozdd253nd" /> */}
-          {/* <ConnectedPollPage id="vthrdm985a262al8qx3do" /> */}
-          <ConnectedHome />
-          {/* @todo create "Add" & "404" component */}
-          {/* @todo Add Routing */}
-        </div>
+          <Routes>
+            <Route path="/" exact element={<ConnectedHome />} />
+            <Route path="/poll/:id" element={<ConnectedPollPage />} />
+            <Route path="/leaderboard" element={<Leaderboard />} />
+            <Route path="/add" element={<AddPoll />} />
+          </Routes>
+          {/* @todo create "Login", "Add" & "404" component */}
+          {/* @todo Add Routing & "Navbar" component */}
+        </>
       )}
     </div>
   );
@@ -32,7 +39,7 @@ function App({ loading, dispatch }) {
 
 const mapStateToProps = ({ authedUser }) => ({
   // Not displaying dashboard until initialdata (including autheduser) is loaded
-  loading: authedUser === null,
+  isLoggedIn: authedUser !== null,
 });
 
 export default connect(mapStateToProps)(App);
