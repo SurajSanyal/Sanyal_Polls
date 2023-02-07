@@ -1,6 +1,8 @@
 import { connect } from "react-redux";
 import { useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { handleAnswerPoll } from "../actions/polls";
+import { addAnswerToUser } from "../actions/users";
 
 // Helper function from react-router
 const withRouter = (Component) => {
@@ -15,7 +17,13 @@ const withRouter = (Component) => {
   return ComponentWithRouterProp;
 };
 
-const PollPage = ({ poll, answer, previouslyAnswered }) => {
+const PollPage = ({
+  poll,
+  answer,
+  previouslyAnswered,
+  authedUser,
+  dispatch,
+}) => {
   const [formAnswer, setFormAnswer] = useState(answer);
 
   const handleFormChange = (e) => {
@@ -24,8 +32,14 @@ const PollPage = ({ poll, answer, previouslyAnswered }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // @todo update store and whatnot
-    console.log("Submitting answer: ", formAnswer);
+    const questionAnswer = {
+      authedUser,
+      qid: poll.id,
+      answer: formAnswer === poll.optionOne.text ? "optionOne" : "optionTwo",
+    };
+
+    dispatch(handleAnswerPoll(questionAnswer));
+    dispatch(addAnswerToUser(questionAnswer));
   };
 
   if (poll === null) {
@@ -117,6 +131,7 @@ const mapStateToProps = ({ authedUser, polls }, props) => {
     poll,
     answer,
     previouslyAnswered: answer !== "",
+    authedUser,
   };
 };
 

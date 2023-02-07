@@ -1,10 +1,9 @@
 import { connect } from "react-redux";
 import { useEffect } from "react";
-import ConnectedPollPreview from "./PollPreview";
-import ConnectedPollPage from "./PollPage";
+import PollPage from "./PollPage";
 import Leaderboard from "./Leaderboard";
 import { handleInitialData } from "../actions/shared";
-import ConnectedHome from "./Home";
+import Home from "./Home";
 import { Routes, Route } from "react-router-dom";
 import Nav from "./Nav";
 import AddPoll from "./AddPoll";
@@ -24,13 +23,11 @@ function App({ isLoggedIn, dispatch }) {
           <Nav />
           <p className="text-3xl text-gray-700 font-bold mb-5">Polls App</p>
           <Routes>
-            <Route path="/" exact element={<ConnectedHome />} />
-            <Route path="/poll/:id" element={<ConnectedPollPage />} />
+            <Route path="/" exact element={<Home />} />
+            <Route path="/poll/:id" element={<PollPage />} />
             <Route path="/leaderboard" element={<Leaderboard />} />
             <Route path="/add" element={<AddPoll />} />
           </Routes>
-          {/* @todo create "Login", "Add" & "404" component */}
-          {/* @todo Add Routing & "Navbar" component */}
         </>
       )}
     </div>

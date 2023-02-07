@@ -20,7 +20,6 @@ const Nav = ({ authedUser, dispatch }) => {
           Leaderboard
         </Link>
       </li>
-      {/* @todo figure out logging out */}
       <li
         className="ml-auto"
         onClick={() => {
