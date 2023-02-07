@@ -35,7 +35,6 @@ const Nav = ({ authedUser, dispatch }) => {
       <li
         className="ml-auto"
         onClick={() => {
-          console.log("Log out");
           dispatch(unsetAuthedUser());
         }}
         data-testid="logout"

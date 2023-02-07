@@ -46,7 +46,6 @@ export function handleAddPoll(poll) {
   return (dispatch) => {
     _saveQuestion(poll)
       .then((res) => {
-        // console.log(res);
         dispatch(addPoll({ res }));
       })
       .catch((e) => {
