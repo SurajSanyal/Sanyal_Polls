@@ -1,19 +1,30 @@
+import React from "react";
+import { Provider } from "react-redux";
 import { render, screen } from "@testing-library/react";
-import { Nav } from "../components/Nav";
+import Nav from "../components/Nav";
+import configureStore from "redux-mock-store";
+import { MemoryRouter } from "react-router-dom";
+import "@testing-library/jest-dom";
 
-// @todo maybe mock store like this?
-// https://medium.com/hackernoon/unit-testing-redux-connected-components-692fa3c4441c
+const mockStore = configureStore([]);
 
-describe("Nav", () => {
-  let wrapper;
-  const mockFunc = jest.fn();
+describe("Nav Component", () => {
+  let store;
 
   beforeEach(() => {
-    wrapper = shallow(<Nav authedUser={mockFunc} />);
+    store = mockStore({
+      authedUser: "sarahedo",
+    });
   });
 
   it("will display all expected links", async () => {
-    render(<Nav authedUser="sarahedo" />);
+    render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <Nav />
+        </MemoryRouter>
+      </Provider>
+    );
 
     expect(screen.getByTestId("home")).toBeInTheDocument();
     expect(screen.getByTestId("add-poll")).toBeInTheDocument();

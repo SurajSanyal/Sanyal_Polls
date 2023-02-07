@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { unsetAuthedUser } from "../actions/authedUser";
 
-export const Nav = ({ authedUser, dispatch }) => {
+const Nav = ({ authedUser, dispatch }) => {
   return (
     <ul className="flex my-6">
       <li className="mr-6">
