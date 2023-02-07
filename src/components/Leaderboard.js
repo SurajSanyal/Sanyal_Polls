@@ -2,32 +2,40 @@ import { connect } from "react-redux";
 
 const Leaderboard = ({ sortedUsers }) => {
   return (
-    <table className="table-auto mx-auto">
-      <thead>
-        <tr>
-          <th>User</th>
-          <th>Questions Asked</th>
-          <th>Questions Answered</th>
-        </tr>
-      </thead>
+    <div className="rounded mx-auto bg-slate-100 text-lg font-semibold py-2">
+      <table className="table-auto mx-auto w-full text-sm text-left text-blue-500">
+        <thead className="text-xs text-blue-500 uppercase bg-slate-100">
+          <tr>
+            <th className="px-6 py-3">User</th>
+            <th className="px-6 py-3">Questions Asked</th>
+            <th className="px-6 py-3">Questions Answered</th>
+          </tr>
+        </thead>
 
-      <tbody>
-        {sortedUsers.map((user) => {
-          return (
-            <tr key={user.id}>
-              <td className="grid justify-center">
-                <div className="flex items-center justify-self-auto">
-                  <img src={user.avatarURL} alt="Profile" className="h-10" />
-                  <span>{user.name}</span>
-                </div>
-              </td>
-              <td>{user.questions.length}</td>
-              <td>{Object.keys(user.answers).length}</td>
-            </tr>
-          );
-        })}
-      </tbody>
-    </table>
+        <tbody>
+          {sortedUsers.map((user) => {
+            return (
+              <tr key={user.id} className="bg-slate-100">
+                <td className="px-6 py-4 font-medium text-blue-500 whitespace-nowrap">
+                  <div className="flex items-center justify-self-auto">
+                    <img
+                      src={user.avatarURL}
+                      alt="Profile"
+                      className="h-10 pr-3"
+                    />
+                    <span>{user.name}</span>
+                  </div>
+                </td>
+                <td className="px-6 py-4">{user.questions.length}</td>
+                <td className="px-6 py-4">
+                  {Object.keys(user.answers).length}
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
   );
 };
 

@@ -24,18 +24,30 @@ const Login = ({ dispatch, users }) => {
 
   return (
     <div>
-      <div>Log In</div>
+      <div className="text-lg font-semibold py-2">Log In</div>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="py-2">
           <div>Username</div>
-          <input name="user" type="text" placeholder="Username" />
+          <input
+            className="p-2 rounded"
+            name="user"
+            type="text"
+            placeholder="Username"
+          />
         </div>
 
-        <div>
+        <div className="py-2">
           <div>Password</div>
-          <input name="pass" type="password" placeholder="Password" />
+          <input
+            className="p-2 rounded"
+            name="pass"
+            type="password"
+            placeholder="Password"
+          />
         </div>
-        <button>Log In</button>
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2 py-2 px-4 rounded">
+          Log In
+        </button>
       </form>
 
       {isLoginValid === false && (

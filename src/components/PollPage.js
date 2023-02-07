@@ -22,6 +22,7 @@ const PollPage = ({
   answer,
   previouslyAnswered,
   authedUser,
+  authorIcon,
   dispatch,
 }) => {
   const [formAnswer, setFormAnswer] = useState(answer);
@@ -43,12 +44,19 @@ const PollPage = ({
   };
 
   if (poll === null) {
-    return <p>404: This poll doesn't exist. :(</p>;
+    return (
+      <p className="rounded mx-auto bg-slate-100 text-lg font-semibold py-2">
+        404: This poll doesn't exist. :(
+      </p>
+    );
   }
 
   return (
     <div className="rounded mx-auto bg-slate-100">
-      <div className="text-lg font-semibold">
+      <div className="text-lg font-semibold py-2">
+        <span>
+          <img src={authorIcon} alt="Profile" className="mx-auto" />
+        </span>
         {poll.author} asks: Would You Rather...
       </div>
       {!previouslyAnswered ? (
@@ -59,6 +67,7 @@ const PollPage = ({
             onChange={handleFormChange}
             checked={formAnswer === poll.optionOne.text}
             value={poll.optionOne.text}
+            className="mb-2"
           />{" "}
           {poll.optionOne.text}
           <br />
@@ -68,20 +77,26 @@ const PollPage = ({
             onChange={handleFormChange}
             checked={formAnswer === poll.optionTwo.text}
             value={poll.optionTwo.text}
+            className="mb-2"
           />{" "}
           {poll.optionTwo.text}
           <br />
           <button
             disabled={formAnswer === ""}
-            className="bg-white hover:bg-blue-50"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded disabled:bg-slate-300 disabled:opacity-70 my-3"
           >
             Submit
           </button>
         </form>
       ) : (
         <>
-          <div>You voted: {answer}</div>
-          <div>
+          <div className="pb-4 italic">You voted: {answer}</div>
+          <div className="pb-2 font-semibold">Results</div>
+          <div
+            className={`py-1 w-[50] mx-auto ${
+              answer === poll.optionOne.text ? "italic" : ""
+            }`}
+          >
             {poll.optionOne.text} - {poll.optionOne.votes.length} vote(s) (
             {Math.round(
               (poll.optionOne.votes.length /
@@ -90,7 +105,11 @@ const PollPage = ({
             )}
             %)
           </div>
-          <div>
+          <div
+            className={`py-1 w-[50%] mx-auto ${
+              answer === poll.optionTwo.text ? "italic bg-green-200" : ""
+            }`}
+          >
             {poll.optionTwo.text} - {poll.optionTwo.votes.length} vote(s) (
             {Math.round(
               (poll.optionTwo.votes.length /
@@ -107,7 +126,7 @@ const PollPage = ({
 
 // connecting to store to grab poll info from state
 // & see if authedUser answered poll already
-const mapStateToProps = ({ authedUser, polls }, props) => {
+const mapStateToProps = ({ authedUser, polls, users }, props) => {
   const { id } = props.router.params;
   const poll = polls[id] ? polls[id] : null;
   let answer = "";
@@ -132,6 +151,7 @@ const mapStateToProps = ({ authedUser, polls }, props) => {
     answer,
     previouslyAnswered: answer !== "",
     authedUser,
+    authorIcon: users[poll.author].avatarURL,
   };
 };
 

@@ -13,11 +13,17 @@ const Home = ({ name, answeredPolls, unansweredPolls }) => {
 
   return (
     <div>
-      <div>Welcome {name.replace(/ .*/, "")}!</div>
-      <div>
+      <div className="text-2xl text-gray-800 font-semibold mb-4">
+        Welcome {name.replace(/ .*/, "")}!
+      </div>
+      <div className="pb-2">
         Polls to display:{" "}
         <span>
-          <select defaultValue="unanswered" onChange={handleChange}>
+          <select
+            defaultValue="unanswered"
+            onChange={handleChange}
+            className="rounded"
+          >
             <option value="unanswered">Unanswered</option>
             <option value="answered">Answered</option>
           </select>
@@ -33,14 +39,17 @@ const Home = ({ name, answeredPolls, unansweredPolls }) => {
 };
 
 const mapStateToProps = ({ authedUser, users, polls }) => {
+  const pollSorter = (pollOneId, pollTwoId) => {
+    return polls[pollTwoId].timestamp - polls[pollOneId].timestamp;
+  };
+
   // Arr w/ keys = ids of answered polls
-  const answeredPolls = Object.keys(users[authedUser].answers);
+  const answeredPolls = Object.keys(users[authedUser].answers).sort(pollSorter);
 
-  const unansweredPolls = Object.keys(polls).filter(
-    (pollId) => !answeredPolls.includes(pollId)
-  );
+  const unansweredPolls = Object.keys(polls)
+    .filter((pollId) => !answeredPolls.includes(pollId))
+    .sort(pollSorter);
 
-  // @todo sort both poll lists by recent-first
   return { name: users[authedUser].name, answeredPolls, unansweredPolls };
 };
 

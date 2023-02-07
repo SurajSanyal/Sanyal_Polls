@@ -15,16 +15,17 @@ function App({ isLoggedIn, dispatch }) {
   }, []);
 
   return (
-    <div className="container mx-auto bg-gray-200 rounded-xl shadow border p-8 m-10 text-center">
+    <div className="container mx-auto bg-blue-200 rounded-xl shadow border p-8 m-10 text-center">
+      <p className="text-3xl text-gray-800 font-bold mb-5">Polls App</p>
+
       {!isLoggedIn ? (
         <Login />
       ) : (
         <>
           <Nav />
-          <p className="text-3xl text-gray-700 font-bold mb-5">Polls App</p>
           <Routes>
             <Route path="/" exact element={<Home />} />
-            <Route path="/poll/:id" element={<PollPage />} />
+            <Route path="/questions/:id" element={<PollPage />} />
             <Route path="/leaderboard" element={<Leaderboard />} />
             <Route path="/add" element={<AddPoll />} />
           </Routes>
@@ -35,7 +36,7 @@ function App({ isLoggedIn, dispatch }) {
 }
 
 const mapStateToProps = ({ authedUser }) => ({
-  // Not displaying dashboard until initialdata (including autheduser) is loaded
+  // Not displaying dashboard until user is logged in
   isLoggedIn: authedUser !== null,
 });
 

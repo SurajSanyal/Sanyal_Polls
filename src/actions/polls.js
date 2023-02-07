@@ -1,4 +1,4 @@
-import { _saveQuestionAnswer } from "../utils/_DATA";
+import { _saveQuestion, _saveQuestionAnswer } from "../utils/_DATA";
 
 export const RECEIVE_POLLS = "RECEIVE_POLLS";
 export const ADD_POLL = "ADD_POLL";
@@ -33,12 +33,25 @@ export function handleAnswerPoll(answer) {
   return (dispatch) => {
     _saveQuestionAnswer(answer)
       .then((res) => {
-        console.log(res);
         dispatch(answerPoll(answer));
       })
       .catch((e) => {
         console.warn("Error in handleAnswerPoll: ", e);
         alert("Error saving answer. Please try again.");
+      });
+  };
+}
+
+export function handleAddPoll(poll) {
+  return (dispatch) => {
+    _saveQuestion(poll)
+      .then((res) => {
+        // console.log(res);
+        dispatch(addPoll({ res }));
+      })
+      .catch((e) => {
+        console.warn("Error in handleAddPoll: ", e);
+        alert("Error saving poll. Please try again.");
       });
   };
 }

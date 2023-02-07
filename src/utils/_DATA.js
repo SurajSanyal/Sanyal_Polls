@@ -1,11 +1,14 @@
-const AVI_URL = "https://freesvg.org/img/8-Bit-Character-1.png";
+import kirby_brown from "../assets/kirby_brown.png";
+import kirby_orange from "../assets/kirby_orange.png";
+import kirby_green from "../assets/kirby_green.png";
+import kirby_purple from "../assets/kirby_purple.png";
 
 let users = {
   sarahedo: {
     id: "sarahedo",
     password: "password123",
     name: "Sarah Edo",
-    avatarURL: AVI_URL,
+    avatarURL: kirby_brown,
     answers: {
       "8xf0y6ziyjabvozdd253nd": "optionOne",
       "6ni6ok3ym7mf1p33lnez": "optionOne",
@@ -18,7 +21,7 @@ let users = {
     id: "tylermcginnis",
     password: "abc321",
     name: "Tyler McGinnis",
-    avatarURL: AVI_URL,
+    avatarURL: kirby_green,
     answers: {
       vthrdm985a262al8qx3do: "optionOne",
       xj352vofupe1dqz9emx13r: "optionTwo",
@@ -29,7 +32,7 @@ let users = {
     id: "mtsamis",
     password: "xyz123",
     name: "Mike Tsamis",
-    avatarURL: AVI_URL,
+    avatarURL: kirby_orange,
     answers: {
       xj352vofupe1dqz9emx13r: "optionOne",
       vthrdm985a262al8qx3do: "optionTwo",
@@ -41,7 +44,7 @@ let users = {
     id: "zoshikanlu",
     password: "pass246",
     name: "Zenobia Oshikanlu",
-    avatarURL: AVI_URL,
+    avatarURL: kirby_purple,
     answers: {
       xj352vofupe1dqz9emx13r: "optionOne",
     },
@@ -192,8 +195,6 @@ export function _saveQuestionAnswer({ authedUser, qid, answer }) {
     if (!authedUser || !qid || !answer) {
       reject("Please provide authedUser, qid, and answer");
     }
-
-    console.log({ authedUser, qid, answer });
 
     setTimeout(() => {
       users = {
