@@ -22,12 +22,15 @@ const Leaderboard = ({ sortedUsers }) => {
                       src={user.avatarURL}
                       alt="Profile"
                       className="h-10 pr-3"
+                      data-testid={`${user.avatarURL}`}
                     />
-                    <span>{user.name}</span>
+                    <span data-testid={`${user.id}-name`}>{user.name}</span>
                   </div>
                 </td>
-                <td className="px-6 py-4">{user.questions.length}</td>
-                <td className="px-6 py-4">
+                <td className="px-6 py-4" data-testid={`${user.id}-questions`}>
+                  {user.questions.length}
+                </td>
+                <td className="px-6 py-4" data-testid={`${user.id}-answers`}>
                   {Object.keys(user.answers).length}
                 </td>
               </tr>

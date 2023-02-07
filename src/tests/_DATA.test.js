@@ -46,10 +46,7 @@ describe("_saveQuestionAnswer", () => {
     };
 
     var answer = await _saveQuestionAnswer(answerInput);
-    // @todo: why is "answer" just "true?"
-    // Do I need a ".then((res))"?
-    console.log(answer);
-    // @todo check fields...idek what fields to check
+    expect(answer).toEqual(true);
   });
 
   it("will reject an invalid answer input", async () => {

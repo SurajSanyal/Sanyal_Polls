@@ -17,7 +17,7 @@ describe("Nav Component", () => {
     });
   });
 
-  it("will display all expected links", async () => {
+  it("will display all expected links", () => {
     render(
       <Provider store={store}>
         <MemoryRouter>

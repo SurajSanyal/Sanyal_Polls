@@ -1,0 +1,406 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Leaderboard Component will match the snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="rounded mx-auto bg-slate-100 text-lg font-semibold py-2"
+      >
+        <table
+          class="table-auto mx-auto w-full text-sm text-left text-blue-500"
+        >
+          <thead
+            class="text-xs text-blue-500 uppercase bg-slate-100"
+          >
+            <tr>
+              <th
+                class="px-6 py-3"
+              >
+                User
+              </th>
+              <th
+                class="px-6 py-3"
+              >
+                Questions Asked
+              </th>
+              <th
+                class="px-6 py-3"
+              >
+                Questions Answered
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              class="bg-slate-100"
+            >
+              <td
+                class="px-6 py-4 font-medium text-blue-500 whitespace-nowrap"
+              >
+                <div
+                  class="flex items-center justify-self-auto"
+                >
+                  <img
+                    alt="Profile"
+                    class="h-10 pr-3"
+                    data-testid="kirby_brown.png"
+                    src="kirby_brown.png"
+                  />
+                  <span
+                    data-testid="sarahedo-name"
+                  >
+                    Sarah Edo
+                  </span>
+                </div>
+              </td>
+              <td
+                class="px-6 py-4"
+                data-testid="sarahedo-questions"
+              >
+                2
+              </td>
+              <td
+                class="px-6 py-4"
+                data-testid="sarahedo-answers"
+              >
+                4
+              </td>
+            </tr>
+            <tr
+              class="bg-slate-100"
+            >
+              <td
+                class="px-6 py-4 font-medium text-blue-500 whitespace-nowrap"
+              >
+                <div
+                  class="flex items-center justify-self-auto"
+                >
+                  <img
+                    alt="Profile"
+                    class="h-10 pr-3"
+                    data-testid="kirby_orange.png"
+                    src="kirby_orange.png"
+                  />
+                  <span
+                    data-testid="mtsamis-name"
+                  >
+                    Mike Tsamis
+                  </span>
+                </div>
+              </td>
+              <td
+                class="px-6 py-4"
+                data-testid="mtsamis-questions"
+              >
+                2
+              </td>
+              <td
+                class="px-6 py-4"
+                data-testid="mtsamis-answers"
+              >
+                3
+              </td>
+            </tr>
+            <tr
+              class="bg-slate-100"
+            >
+              <td
+                class="px-6 py-4 font-medium text-blue-500 whitespace-nowrap"
+              >
+                <div
+                  class="flex items-center justify-self-auto"
+                >
+                  <img
+                    alt="Profile"
+                    class="h-10 pr-3"
+                    data-testid="kirby_green.png"
+                    src="kirby_green.png"
+                  />
+                  <span
+                    data-testid="tylermcginnis-name"
+                  >
+                    Tyler McGinnis
+                  </span>
+                </div>
+              </td>
+              <td
+                class="px-6 py-4"
+                data-testid="tylermcginnis-questions"
+              >
+                2
+              </td>
+              <td
+                class="px-6 py-4"
+                data-testid="tylermcginnis-answers"
+              >
+                2
+              </td>
+            </tr>
+            <tr
+              class="bg-slate-100"
+            >
+              <td
+                class="px-6 py-4 font-medium text-blue-500 whitespace-nowrap"
+              >
+                <div
+                  class="flex items-center justify-self-auto"
+                >
+                  <img
+                    alt="Profile"
+                    class="h-10 pr-3"
+                    data-testid="kirby_purple.png"
+                    src="kirby_purple.png"
+                  />
+                  <span
+                    data-testid="zoshikanlu-name"
+                  >
+                    Zenobia Oshikanlu
+                  </span>
+                </div>
+              </td>
+              <td
+                class="px-6 py-4"
+                data-testid="zoshikanlu-questions"
+              >
+                0
+              </td>
+              <td
+                class="px-6 py-4"
+                data-testid="zoshikanlu-answers"
+              >
+                1
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="rounded mx-auto bg-slate-100 text-lg font-semibold py-2"
+    >
+      <table
+        class="table-auto mx-auto w-full text-sm text-left text-blue-500"
+      >
+        <thead
+          class="text-xs text-blue-500 uppercase bg-slate-100"
+        >
+          <tr>
+            <th
+              class="px-6 py-3"
+            >
+              User
+            </th>
+            <th
+              class="px-6 py-3"
+            >
+              Questions Asked
+            </th>
+            <th
+              class="px-6 py-3"
+            >
+              Questions Answered
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            class="bg-slate-100"
+          >
+            <td
+              class="px-6 py-4 font-medium text-blue-500 whitespace-nowrap"
+            >
+              <div
+                class="flex items-center justify-self-auto"
+              >
+                <img
+                  alt="Profile"
+                  class="h-10 pr-3"
+                  data-testid="kirby_brown.png"
+                  src="kirby_brown.png"
+                />
+                <span
+                  data-testid="sarahedo-name"
+                >
+                  Sarah Edo
+                </span>
+              </div>
+            </td>
+            <td
+              class="px-6 py-4"
+              data-testid="sarahedo-questions"
+            >
+              2
+            </td>
+            <td
+              class="px-6 py-4"
+              data-testid="sarahedo-answers"
+            >
+              4
+            </td>
+          </tr>
+          <tr
+            class="bg-slate-100"
+          >
+            <td
+              class="px-6 py-4 font-medium text-blue-500 whitespace-nowrap"
+            >
+              <div
+                class="flex items-center justify-self-auto"
+              >
+                <img
+                  alt="Profile"
+                  class="h-10 pr-3"
+                  data-testid="kirby_orange.png"
+                  src="kirby_orange.png"
+                />
+                <span
+                  data-testid="mtsamis-name"
+                >
+                  Mike Tsamis
+                </span>
+              </div>
+            </td>
+            <td
+              class="px-6 py-4"
+              data-testid="mtsamis-questions"
+            >
+              2
+            </td>
+            <td
+              class="px-6 py-4"
+              data-testid="mtsamis-answers"
+            >
+              3
+            </td>
+          </tr>
+          <tr
+            class="bg-slate-100"
+          >
+            <td
+              class="px-6 py-4 font-medium text-blue-500 whitespace-nowrap"
+            >
+              <div
+                class="flex items-center justify-self-auto"
+              >
+                <img
+                  alt="Profile"
+                  class="h-10 pr-3"
+                  data-testid="kirby_green.png"
+                  src="kirby_green.png"
+                />
+                <span
+                  data-testid="tylermcginnis-name"
+                >
+                  Tyler McGinnis
+                </span>
+              </div>
+            </td>
+            <td
+              class="px-6 py-4"
+              data-testid="tylermcginnis-questions"
+            >
+              2
+            </td>
+            <td
+              class="px-6 py-4"
+              data-testid="tylermcginnis-answers"
+            >
+              2
+            </td>
+          </tr>
+          <tr
+            class="bg-slate-100"
+          >
+            <td
+              class="px-6 py-4 font-medium text-blue-500 whitespace-nowrap"
+            >
+              <div
+                class="flex items-center justify-self-auto"
+              >
+                <img
+                  alt="Profile"
+                  class="h-10 pr-3"
+                  data-testid="kirby_purple.png"
+                  src="kirby_purple.png"
+                />
+                <span
+                  data-testid="zoshikanlu-name"
+                >
+                  Zenobia Oshikanlu
+                </span>
+              </div>
+            </td>
+            <td
+              class="px-6 py-4"
+              data-testid="zoshikanlu-questions"
+            >
+              0
+            </td>
+            <td
+              class="px-6 py-4"
+              data-testid="zoshikanlu-answers"
+            >
+              1
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

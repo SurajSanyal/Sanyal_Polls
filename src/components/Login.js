@@ -33,6 +33,7 @@ const Login = ({ dispatch, users }) => {
             name="user"
             type="text"
             placeholder="Username"
+            data-testid="username"
           />
         </div>
 
@@ -42,16 +43,20 @@ const Login = ({ dispatch, users }) => {
             className="p-2 rounded"
             name="pass"
             type="password"
+            data-testid="password"
             placeholder="Password"
           />
         </div>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2 py-2 px-4 rounded">
+        <button
+          data-testid="submit"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2 py-2 px-4 rounded"
+        >
           Log In
         </button>
       </form>
 
       {isLoginValid === false && (
-        <div className="rounded-sm bg-red-200">
+        <div className="rounded-sm bg-red-200" data-testid="error-msg">
           <span>Error: Invalid Login</span>
         </div>
       )}
