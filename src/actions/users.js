@@ -1,5 +1,6 @@
 export const RECEIVE_USERS = "RECEIVE_USERS";
 export const ADD_ANSWER_TO_USER = "ADD_ANSWER_TO_USER";
+export const ADD_POLL_TO_USER = "ADD_POLL_TO_USER";
 
 export function receiveUsers(users) {
   return {
@@ -14,5 +15,13 @@ export function addAnswerToUser({ authedUser, qid, answer }) {
     authedUser,
     qid,
     answer,
+  };
+}
+
+export function addPollToUser({ id, user }) {
+  return {
+    type: ADD_POLL_TO_USER,
+    id,
+    user,
   };
 }

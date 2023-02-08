@@ -1,4 +1,5 @@
 import { _saveQuestion, _saveQuestionAnswer } from "../utils/_DATA";
+import { addPollToUser } from "./users";
 
 export const RECEIVE_POLLS = "RECEIVE_POLLS";
 export const ADD_POLL = "ADD_POLL";
@@ -46,7 +47,18 @@ export function handleAddPoll(poll) {
   return (dispatch) => {
     _saveQuestion(poll)
       .then((res) => {
-        dispatch(addPoll({ res }));
+        dispatch(
+          addPoll({
+            [res.id]: res,
+          })
+        );
+
+        dispatch(
+          addPollToUser({
+            id: res.id,
+            user: res.author,
+          })
+        );
       })
       .catch((e) => {
         console.warn("Error in handleAddPoll: ", e);
